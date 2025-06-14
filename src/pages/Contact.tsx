@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, MapPin, Phone } from 'lucide-react';
+  import i18next from 'i18next';
+import { useTranslation } from 'react-i18next';
 
 const Contact = () => {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -25,18 +28,18 @@ const Contact = () => {
   const contactInfo = [
     {
       icon: <Mail className="w-6 h-6" />,
-      title: 'Email',
-      details: 'contact@example.com',
+      title: <h1 className='text-blue-400'>{t('emailcontact')}</h1>,
+      details: 'ravmuhammad@gmail.com',
     },
     {
       icon: <Phone className="w-6 h-6" />,
-      title: 'Phone',
-      details: '+1 (555) 123-4567',
+      title: <h1 className='text-blue-400'>{t('phonecontact')}</h1>,
+      details: '+998 (93) 500-93-83',
     },
     {
       icon: <MapPin className="w-6 h-6" />,
-      title: 'Location',
-      details: 'San Francisco, CA',
+      title: <h1 className='text-blue-400'>{t('locationcontact')}</h1>,
+      details: <h1>{t('locationc1')}</h1>,
     },
   ];
 
@@ -50,14 +53,13 @@ const Contact = () => {
         <div className="relative mb-16 text-center">
           <div className="absolute inset-0 bg-gradient-radial from-primary-200/30 to-transparent rounded-full blur-3xl" />
           <h1 className="text-5xl font-bold bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent">
-            Get in Touch
+            {t('title4')}
           </h1>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 mb-12">
           {contactInfo.map((info) => (
             <motion.div
-              key={info.title}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               className="bg-white dark:bg-gray-800/50 backdrop-blur-lg p-8 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700 hover:border-primary-500 transition-all text-center group"
@@ -79,7 +81,7 @@ const Contact = () => {
                   htmlFor="name"
                   className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
                 >
-                  Name
+                  {t('namecontact')}
                 </label>
                 <input
                   type="text"
@@ -96,7 +98,7 @@ const Contact = () => {
                   htmlFor="email"
                   className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
                 >
-                  Email
+                  {t('emailcontact')}
                 </label>
                 <input
                   type="email"
@@ -114,7 +116,7 @@ const Contact = () => {
                 htmlFor="subject"
                 className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
               >
-                Subject
+                {t('messagecontact')}
               </label>
               <input
                 type="text"
@@ -131,7 +133,7 @@ const Contact = () => {
                 htmlFor="message"
                 className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
               >
-                Message
+                {t('messagecontact')}
               </label>
               <textarea
                 id="message"
@@ -147,7 +149,7 @@ const Contact = () => {
               type="submit"
               className="w-full bg-gradient-to-r from-primary-600 to-secondary-600 text-white py-4 px-8 rounded-lg hover:opacity-90 transition-all transform hover:scale-105"
             >
-              Send Message
+              {t('sendmessagecontact')}
             </button>
           </form>
         </div>

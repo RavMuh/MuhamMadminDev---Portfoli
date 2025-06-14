@@ -1,28 +1,29 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ExternalLink, Github } from 'lucide-react';
-
+import { useTranslation } from 'react-i18next';
 const Projects = () => {
+  const { t } = useTranslation();
   const projects = [
     {
-      title: 'E-commerce Platform',
-      description: 'A full-stack e-commerce solution built with React and Node.js.',
+      title: <span>{t('project1')}</span>,
+      description: <p>{t('projectp4')}</p>,
       image: 'https://images.pexels.com/photos/5632402/pexels-photo-5632402.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
       tags: ['React', 'Node.js', 'MongoDB', 'Stripe'],
       liveUrl: '#',
       githubUrl: '#',
     },
     {
-      title: 'Task Management App',
-      description: 'A collaborative task management tool with real-time updates.',
+      title: <span>{t('project2')}</span>,
+      description: <p>{t('projectp5')}</p>,
       image: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
       tags: ['React', 'Firebase', 'Tailwind CSS'],
       liveUrl: '#',
       githubUrl: '#',
     },
     {
-      title: 'Weather Dashboard',
-      description: 'A weather application with detailed forecasts and animations.',
+      title: <span>{t('project3')}</span>,
+      description: <p>{t('projectp6')}</p>,
       image: 'https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
       tags: ['React', 'OpenWeather API', 'Chart.js'],
       liveUrl: '#',
@@ -39,7 +40,7 @@ const Projects = () => {
       >
         <div className="absolute inset-0 bg-gradient-radial from-primary-200/30 to-transparent rounded-full blur-3xl" />
         <h1 className="text-5xl font-bold bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent">
-          My Projects
+          {t('title1')}
         </h1>
       </motion.div>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -84,7 +85,7 @@ const Projects = () => {
                   className="flex items-center text-primary-600 hover:text-primary-700 transition-colors"
                 >
                   <ExternalLink className="w-4 h-4 mr-2" />
-                  Live Demo
+                  {t('livedemo')}
                 </a>
                 <a
                   href={project.githubUrl}
@@ -93,7 +94,7 @@ const Projects = () => {
                   className="flex items-center text-gray-600 hover:text-gray-700 dark:text-gray-300 dark:hover:text-gray-200 transition-colors"
                 >
                   <Github className="w-4 h-4 mr-2" />
-                  Source Code
+                  {t('sourcecode')}
                 </a>
               </div>
             </div>

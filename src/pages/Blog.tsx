@@ -1,8 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Calendar, Clock, User } from 'lucide-react';
+  import i18next from 'i18next';
+import { useTranslation } from 'react-i18next';
 
 const Blog = () => {
+  const { t } = useTranslation();
   const posts = [
     {
       title: 'Building Scalable React Applications',
@@ -38,9 +41,9 @@ const Blog = () => {
       <motion.h1
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="text-4xl font-bold text-center mb-12"
+        className="text-4xl font-bold text-center mb-12 text-blue-400"
       >
-        Blog
+        {t('title3')}
       </motion.h1>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {posts.map((post, index) => (
@@ -49,7 +52,7 @@ const Blog = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg"
+            className="bg-white dark:bg-gray-800 text-blue-400 rounded-lg overflow-hidden shadow-lg"
           >
             <img
               src={post.image}
@@ -62,7 +65,7 @@ const Blog = () => {
                 {post.excerpt}
               </p>
               <div className="flex items-center text-sm text-gray-500 dark:text-gray-400 space-x-4">
-                <div className="flex items-center">
+                <div className="flex items-center ">
                   <Calendar className="w-4 h-4 mr-1" />
                   {post.date}
                 </div>
