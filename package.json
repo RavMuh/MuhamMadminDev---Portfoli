@@ -9,6 +9,7 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
+ 
   "dependencies": {
     "@tailwindcss/cli": "^4.1.8",
     "@types/node": "^20.8.2",
